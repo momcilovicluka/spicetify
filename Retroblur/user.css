@@ -1,35 +1,79 @@
 :root {
-  --sidebar-y-offset: 10px;
-  --border-radius-1: 30px;
+  --sidebar-y-offset: 0px;
+  --border-radius-1: 20px;
   --border-radius-2: 8px;
   --border-radius-3: 4px;
   --scrollbars: unset;
-  --green: #00106d;
   --spice-main: transparent;
-  --spice-misc: rgba(0, 0, 50, 0.8);
-  --spice-player: rgba(0, 0, 50, 0.4);
-  --bg: url(--spice-wallpaper);
+  --spice-misc: rgba(30, 30, 30, 0.8);
+  --spice-player: rgba(30, 30, 30, 0.45);
+  --retroblur-player: rgba(30, 30, 30, 0.45); /* --spice-player is changed by marketplace on color change */
 }
 /*
- Set the wallpaper to the one matching your color scheme
- Source: https://wallpapercave.com/wp/wp5003466.jpg
- Purple: https://github.com/Motschen/Retroblur/blob/main/assets/background_purple.jpg?raw=true
- Red: https://github.com/Motschen/Retroblur/blob/main/assets/background_red.jpg?raw=true
- Green: https://github.com/Motschen/Retroblur/blob/main/assets/background_green.jpg?raw=true
- Yellow: https://github.com/Motschen/Retroblur/blob/main/assets/background_yellow.jpg?raw=true
- Blue: https://github.com/Motschen/Retroblur/blob/main/assets/background_blue.jpg?raw=true
- Beach (Blue): https://wallpapercave.com/wp/wp5922621.jpg
- Forest (Green): https://i.imgur.com/hnpaDeR.jpg
- fiona frost: https://imgur.com/OmZfNoY.gif
+ Set the wallpaper to one matching your color scheme
+ -> Here are some cartoon wallpapers that suit their theme well:
+ Bridge (Dream): https://github.com/Motschen/Retroblur/blob/fresh/assets/background_purple.jpg?raw=true
+ Bridge (Mercy): https://github.com/Motschen/Retroblur/blob/fresh/assets/background_red.jpg?raw=true
+ Bridge (Lush): https://github.com/Motschen/Retroblur/blob/fresh/assets/background_green.jpg?raw=true
+ Bridge (Sun): https://github.com/Motschen/Retroblur/blob/fresh/assets/background_yellow.jpg?raw=true
+ Bridge (Water): https://github.com/Motschen/Retroblur/blob/fresh/assets/background_blue.jpg?raw=true
+    Bridge Wallpaper Source: https://wallpapercave.com/wp/wp5003466.jpg
+ Forest (Lush): https://i.imgur.com/hnpaDeR.jpg
+
+ -> Here are some real life wallpapers that suit their theme well:
+ Beach (Sun): https://wallpapercave.com/wp/wp5922621.jpg
+ Lamborghini (Mercy): https://i.etsystatic.com/26226621/r/il/acca86/4880827253/il_794xN.4880827253_4ig6.jpg
+    Source: https://www.etsy.com/de/listing/1464786817/lamborghini-digitale-kunst
+ Rose (Mercy): https://4kwallpapers.com/images/walls/thumbs_3t/10670.jpg
+    Source: https://4kwallpapers.com/flowers/red-flower-red-rose-10670.html
+ Evening Clouds (Sunset): https://4kwallpapers.com/images/walls/thumbs_3t/4928.jpg
+    Source: https://4kwallpapers.com/nature/sunset-mountain-range-silhouette-landscape-orange-sky-4928.html
+ Waterfalls (Lush): https://images3.alphacoders.com/356/35627.jpg
+    Source: https://wall.alphacoders.com/big.php?i=35627
+ Surfing (Sun): https://images.unsplash.com/photo-1516370873344-fb7c61054fa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
+    Source: https://unsplash.com/de/fotos/xarhNpLSHTk
+ Surfing (Water): https://images.unsplash.com/photo-1502933691298-84fc14542831?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
+    Source: https://unsplash.com/de/fotos/TII6axq3eo4
  */
 body {
-    background-image: url("https://imgur.com/OmZfNoY.gif") !important;
+    /* Set the wallpaper link below */
+    /* vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv */
+    background-image: url("https://imgur.com/OmZfNoY.gif");
+    /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
     background-repeat: no-repeat;
     background-size: 100%;
 }
-/* Fixed navbar overlaping on top Spotify's menu in Windows */
-.main-navBar-entryPoints {
-  margin-top: 20px;
+.Root__top-container {
+  background: transparent;
+}
+.main-yourLibraryX-libraryContainer.main-yourLibraryX-libraryIsExpanded.main-yourLibraryX-libraryIsCollapsed {
+  padding-bottom: 0px;
+}
+.Root__now-playing-bar, .main-nowPlayingBar-container {
+  border-radius: var(--border-radius-2) !important;
+}
+/* Compact left sidebar */
+.main-yourLibraryX-navItem {
+  padding: 1px 12px;
+}
+.main-yourLibraryX-header {
+  position: relative;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+/* Fixes flickering in certain screens */
+.nav-ylx .Root__main-view .os-viewport {
+  border-radius: 0px;
+}
+.spotify__os--is-linux.spotify__container--is-desktop .Root__top-container {
+  padding-top: var(--panel-gap);
+}
+/* Fixed navbar overlapping on top Spotify's menu in Windows */
+.spotify__os--is-linux.spotify__container--is-desktop:not(.fullscreen) .main-navBar-entryPoints {
+  padding-top: var(--sidebar-y-offset);
+}
+.spotify__os--is-linux.spotify__container--is-desktop:not(.fullscreen) .main-navBar-navBar {
+  padding-top: 10px;
 }
 /* Playing track's title in playlist */
 .main-trackList-trackListRow.main-trackList-active .main-trackList-rowTitle, .main-trackList-trackListRow.main-trackList-active .main-trackList-rowMarker {
@@ -38,21 +82,34 @@ body {
 .main-trackList-trackListRow.main-trackList-active:hover .main-trackList-rowTitle {
   color: var(--spice-button);
 }
+/* Fixes blur looking weird on home page shortcuts */
+.view-homeShortcutsGrid-shortcut .view-homeShortcutsGrid-imageContainer > div > img {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
 
 /* Explicit content black */
 .main-tag-container {
   color: black;
+  background-color: var(--spice-text);
 }
 
 /* Disable upgrade button */
 .main-topBar-UpgradeButton {
   display: none;
 }
+.search-icon {
+  color: var(--spice-text);
+}
+.main-topBar-historyButtons .main-topBar-button {
+  margin-right: 5px;
+}
 
 /* Fix the navbar icons not showing when selected */
 .home-active-icon, .search-active-icon, .collection-active-icon {
   color: white;
   fill: white;
+  filter: drop-shadow(0px 0px 10px white);
 }
 
 /* Make the friend list transparent and blured */
@@ -66,15 +123,15 @@ body {
   background-color: rgba(30, 30, 30, 0.4)
 }
 .lyrics-lyrics-contentContainer {
-  --lyrics-color-active: #ff0050 !important;
-  --lyrics-color-inactive: #00fff2 !important;
-  --lyrics-color-background: #000060 !important;
+  --lyrics-color-active: #ffde00 !important;
+  --lyrics-color-inactive: #D56F80 !important;
+  --lyrics-color-background: #1e1e1e !important;
   backdrop-filter: blur(14px) !important;
 }
 
 /* Fixed elapsed time overlapping with the mic button */
 .playback-bar__progress-time, .playback-bar__progress-time-elapsed, .main-playbackBarRemainingTime-container {
-  right: 265px;
+  right: 325px;
 }
 
 /* Make the selected track in playlist more readable */
@@ -126,14 +183,22 @@ div[aria-selected="true"] > div > div.main-trackList-rowSectionStart > div > div
     right: 16px;
     bottom: 106px;
 }
+.main-connectBar-connectBar {
+  bottom: 86px;
+}
 .main-connectBar-connectBar, .iUSAh1wdhXLk9hHSbkCA.hsrxlVHxK0zZrgarkxuA:after {
     filter: drop-shadow(0 0 6px var(--spice-button)) !important;
     color: black;
     opacity: 90%;
 }
-.iUSAh1wdhXLk9hHSbkCA.hsrxlVHxK0zZrgarkxuA:after {
+.main-devicePicker-indicator.main-devicePicker-connected,
+#main > div > div.Root__top-container.Root__top-container--right-sidebar-hidden > div.Root__now-playing-bar > footer > div.main-nowPlayingBar-nowPlayingBar > div.main-nowPlayingBar-right > div > div.main-contextMenu-tippyWrapper > div > div {
     transform: scaleY(-1);
     bottom: 67px;
+    opacity: 90%;
+}
+.main-devicePicker-indicator.main-devicePicker-connected {
+    bottom: 56px;
 }
 .yaVzc4bseRnztmfRv_u3, .volume-bar .progress-bar__slider {
     filter: drop-shadow(0 0 6px var(--spice-button)) !important;
@@ -141,12 +206,9 @@ div[aria-selected="true"] > div > div.main-trackList-rowSectionStart > div > div
 .main-view-container, .Root__main-view, .os-host-overflow, .os-resize-observer, .os-resize-observer-host, .os-host-overflow>.os-padding {
     overflow: hidden !important;
 }
-.spotify__container--is-desktop:not(.fullscreen) .main-navBar-entryPoints, .main-navBar-navBar, .main-rootlist-rootlistPlaylistsScrollNode, .main-createPlaylistButton-button {
-    padding-top: var(--sidebar-y-offset);
-}
 .Root__now-playing-bar {
-    backdrop-filter: blur(14px) !important;
-    background-color: rgba(30, 30, 30, 0.6) !important;
+  backdrop-filter: blur(14px) !important;
+  background-color: rgba(30, 30, 30, 0.6) !important;
 }
 @keyframes fadingGlow {
   from {} to { filter: drop-shadow(0 0 6px var(--spice-button)); }
@@ -154,7 +216,9 @@ div[aria-selected="true"] > div > div.main-trackList-rowSectionStart > div > div
 @keyframes fadingGlowWhite {
   from {} to { filter: drop-shadow(0 0 6px); }
 }
-.gSLhUO:hover, .main-playButton-PlayButton.main-playButton-primary:hover, .main-pageErrorTemplate-errorButton:hover, div.GlueDropTarget.personal-library >*.active:hover, .main-rootlist-rootlistItemLink.main-rootlist-rootlistItemLinkActive:hover, .main-navBar-navBarLinkActive:hover, .control-button-heart:hover, .gHYQaG:hover, .iaAUvZ:hover {
+.gSLhUO:hover, .main-playButton-PlayButton.main-playButton-primary:hover, .main-pageErrorTemplate-errorButton:hover, 
+.main-rootlist-rootlistItemLink.main-rootlist-rootlistItemLinkActive:hover, .main-navBar-navBarLinkActive:hover, 
+.control-button-heart:hover, .gHYQaG:hover, .iaAUvZ:hover {
     animation: fadingGlow 1s ease 0.5 forwards !important;
 }
 a:hover, .main-trackList-rowPlayPauseButton:hover, svg:hover {
@@ -203,8 +267,14 @@ div.GlueDropTarget.personal-library {
 .playback-bar .progress-bar__slider {
     filter: drop-shadow(0 0 6px var(--spice-button));
 }
+/* Shows a reflection of the big cover image */
 .main-coverSlotExpanded-container {
     -webkit-box-reflect: below;
+}
+.main-coverSlotExpanded-containerExpanding {
+    -webkit-box-reflect: below;
+    bottom: -9px;
+    left: calc(100vw - 284px);
 }
 .main-home-content, .main-entityHeader-backgroundColor, .main-actionBar-ActionBar, .content-spacing, :root, .main-navBar-navBar, .D_XKXBZDhgpM1KrmKy3O, .spotify__container--is-desktop:not(.fullscreen) .main-navBar-entryPoints {
     background-color: transparent !important;
@@ -214,6 +284,7 @@ div.GlueDropTarget.personal-library {
 .Root__nav-bar {
     background-color: rgba(30, 30, 30, 0.4);
     backdrop-filter: blur(14px) !important;
+    border-radius: 8px;
 }
 /* scrollbars */
 .os-scrollbar {
@@ -236,8 +307,9 @@ div.GlueDropTarget.personal-library {
 .main-entityHeader-backgroundColor {
   background: transparent;
 }
-/* remove dividers */
+/* Remove dividers at playlist top & style header */
 .main-trackList-trackListHeaderRow, .main-trackCreditsModal-header {
+  border-radius: 5px;
   border-bottom: none;
   background-color: rgba(30, 30, 30, 0.4) !important;
   backdrop-filter: blur(14px) !important;
@@ -256,7 +328,7 @@ div.GlueDropTarget.personal-library {
   border-radius: var(--border-radius-1) !important;
 }
 .main-card-card, .view-homeShortcutsGrid-shortcut {
-  background-color: rgba(0, 0, 50, 0.4) !important;
+  background-color: rgba(30, 30, 30, 0.4) !important;
   backdrop-filter: blur(14px) !important;
 }
 /* transitions */
@@ -396,10 +468,6 @@ button.switch {
 .main-rootlist-rootlistItemLinkActive, .main-rootlist-rootlistItemLinkActive:hover, .VBBDTqhWgM6gWFAMJSUV, .VBBDTqhWgM6gWFAMJSUV:hover {
   background-color: var(--spice-selected-row);
 }
-.ac0df040748287f39652cc42e3b762ba-scss._926f2bd73c2ddb23fb86b430a2f48707-scss, .main-collectionLinkButton-selected, .main-collectionLinkButton-collectionLinkButton.active {
-  background: var(--spice-selected-row) !important;
-  color: var(--spice-shadow) !important;
-}
 div.GlueDropTarget.personal-library >*.active > div.main-rootlist-statusIcons > button {
   color: var(--spice-shadow) !important;
 }
@@ -466,7 +534,7 @@ div.GlueDropTarget.personal-library >*.active > div.main-rootlist-statusIcons > 
   border-bottom: none;
 }
 .main-trackList-statusChangeUp {
-  color: var(--green);
+  color: #1db954;
 }
 /* big thanks to CharlieS and harbassan for providing the svg */
 .main-trackList-playingIcon {
@@ -567,8 +635,9 @@ path[d="M23 0C10.298 0 0 10.297 0 23c0 12.702 10.298 23 23 23 12.703 0 23-10.298
 } */
 /* modals */
 .main-trackCreditsModal-container, .main-aboutRecsModal-container, .main-playlistEditDetailsModal-container, .profile-userEditDetails-container, .artist-artistAbout-modal {
-
+  background-color: rgba(30, 30, 30, 0.4);
   border-radius: var(--border-radius-1) !important;
+  backdrop-filter: blur(14px);
 }
 .main-playlistEditDetailsModal-titleInput, .main-playlistEditDetailsModal-descriptionTextarea, .main-playlistEditDetailsModal-titleInput:focus, .main-playlistEditDetailsModal-descriptionTextarea:focus, .playlist-inlineSearchBox-filterInput {
   background-color: rgba(30, 30, 30, 0.4) !important;
@@ -618,10 +687,11 @@ path[d="M23 0C10.298 0 0 10.297 0 23c0 12.702 10.298 23 23 23 12.703 0 23-10.298
 }
 .main-buddyFeed-friendActivity, .ythYrlFSBm1P_ltHc8e1 {
   background-color: rgba(30, 30, 30, 0.4) !important;
+
   backdrop-filter: blur(14px) !important;
   border-radius: var(--border-radius-1);
-  margin: 5px;
-  padding: 10px;
+  margin-top: 10px;
+  padding-left: 5px;
 }
 /* settings */
 .main-dropDown-dropDown, option {
@@ -686,9 +756,12 @@ input:hover:not([disabled]):not(:active)~.x-toggle-indicatorWrapper {
 .playback-bar__progress-time, .playback-bar__progress-time-elapsed, .main-playbackBarRemainingTime-container {
   position: absolute;
   bottom: -48px;
-  right: 250px;
+  right: 270px;
   color: var(--spice-text) !important;
   filter: drop-shadow(0 0 6px var(--spice-text)) !important;
+}
+.playback-bar__progress-time, .playback-bar__progress-time-elapsed, .main-playbackBarRemainingTime-container {
+  bottom: -39px;
 }
 .playback-bar__progress-time:first-child {
   margin-right: 30px;
@@ -736,9 +809,11 @@ input:hover:not([disabled]):not(:active)~.x-toggle-indicatorWrapper {
   background-color: var(--spice-button);
 }
 .playback-bar {
-  width: 100%;
-  bottom: 83px;
   position: absolute;
+  bottom: 63.52px;
+  left: 0px;
+  margin-left: 3.2px;
+  width: calc(100vw - 24px);
 }
 .playback-bar .progress-bar__bg, .playback-bar .progress-bar__fg_wrapper, .playback-bar .progress-bar__fg {
   border-radius: 0;
@@ -798,6 +873,7 @@ input:hover:not([disabled]):not(:active)~.x-toggle-indicatorWrapper {
     moveY 4.4s linear 0s infinite alternate-reverse;
 }
 .lyrics-lyricsContainer-LyricsBackground {
+    visibility:hidden;
     opacity: 0.5 !important;
 }
 /* Change text of the container
@@ -857,4 +933,259 @@ CANVAS!!!
 }
 #spicetify-sticky-list > div.GlueDropTarget.GlueDropTarget--albums.GlueDropTarget--tracks.GlueDropTarget--local-tracks.GlueDropTarget--episodes.personal-library {
   margin-top: -15px;
+}
+/* Purple glow, gradient and animation for progress bar, volume bar, 
+   play button and selected sidebar items */
+@keyframes gradientFade {
+  /* Animation is done using this technique: https://stackoverflow.com/a/33938639 */
+  from {
+    background-position: 0% 100%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
+}
+.BoxComponent-group-tinted-listRow-isInteractive-hasLeadingOrMedia-paddingBlockStart_8px-paddingBlockEnd_8px-minBlockSize_56px-padding_8px {
+  background: linear-gradient(45deg, rgba(var(--spice-rgb-selected-row),0.3), 40%, rgba(var(--spice-rgb-subtext),0.3), 80%, rgba(var(--spice-rgb-selected-row),0.3));
+  background-position: 0% 100%;
+  background-size: 200% 200%;
+  animation: gradientFade 3s linear infinite alternate;
+}
+.playback-bar .x-progressBar-fillColor, .volume-bar .x-progressBar-fillColor {
+  background: linear-gradient(45deg, var(--spice-selected-row), 40%, var(--spice-subtext), 80%, var(--spice-selected-row));
+  background-position: 0% 100%;
+  background-size: 200% 200%;
+  animation: gradientFade 3s linear infinite alternate;
+}
+#wallpaper-save,
+.ButtonInner-lg-iconOnly,
+.playlist-item__img.folder,
+.main-rootlist-rootlistItemLinkActive, .main-rootlist-rootlistItemLinkActive:hover, .VBBDTqhWgM6gWFAMJSUV, .VBBDTqhWgM6gWFAMJSUV:hover,
+.ac0df040748287f39652cc42e3b762ba-scss._926f2bd73c2ddb23fb86b430a2f48707-scss, .main-collectionLinkButton-selected, .main-collectionLinkButton-collectionLinkButton.active,
+.main-navBar-navBarLinkActive, .main-navBar-navBarLinkActive:hover, .main-navBar-navBarLinkActive:active, .main-navBar-navBarLinkActive:focus {
+  background-image: linear-gradient(69deg, var(--spice-selected-row), 40%, var(--spice-subtext), 80%, var(--spice-selected-row)) !important;
+  background-position: 0% 100%;
+  background-size: 200% 200% !important;
+  animation: gradientFade 3s ease infinite alternate;
+}
+#wallpaper-save:hover,
+.main-rootlist-rootlistItemLinkActive, .main-rootlist-rootlistItemLinkActive:hover, .VBBDTqhWgM6gWFAMJSUV, .VBBDTqhWgM6gWFAMJSUV:hover,
+.ac0df040748287f39652cc42e3b762ba-scss._926f2bd73c2ddb23fb86b430a2f48707-scss, .main-collectionLinkButton-selected, .main-collectionLinkButton-collectionLinkButton.active,
+.main-navBar-navBarLinkActive, .main-navBar-navBarLinkActive:hover, .main-navBar-navBarLinkActive:active, .main-navBar-navBarLinkActive:focus {
+  box-shadow: 0px 0px 3px 1px var(--spice-subtext);
+  color: black !important;
+}
+/* Darken less important buttons */
+.main-skipBackButton-button > svg > path, .main-skipForwardButton-button > svg > path, .control-button > svg > path,
+.playlist-item__img.folder {
+  filter: brightness(90%);
+}
+/* Better look for YourEpisodes & LocalFiles cards */
+.main-yourEpisodes-coverIcon, .Svg-img-textBrightAccent-64-icon {
+  color: var(--spice-text);
+  fill: var(--spice-text);
+}
+.main-yourEpisodes-coverContainer {
+  background: linear-gradient(36deg, #056952, 70%, #0caf27);
+}
+.fRZRXRIV2YBCFLYgwDAr {
+  background: linear-gradient(36deg, #202f72, 70%, #34c8d3);
+}
+/* Fix your podcasts items having no background */
+.TT1tIewS2iI8Uz8kLuQB {
+  backdrop-filter: blur(10px);
+  background: var(--retroblur-player);
+  border-radius: 10px;
+}
+.TT1tIewS2iI8Uz8kLuQB:hover {
+  background: var(--spice-misc);
+}
+/* Fixes marketplace readmes & settings screen having no background */
+#marketplace-readme, .x-settings-container {
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background: var(--retroblur-player) !important;
+}
+#marketplace-readme a {
+  color: var(--spice-text) !important;
+}
+/* Makes context menus transparent & blurred */
+.main-contextMenu-menu {
+  background-color: var(--spice-misc);
+  /*backdrop-filter: blur(10px); temporarily disabled, as this breaks sub-menus :( */
+}
+/* Fixes playlist icon shadow being cut off */
+.main-entityHeader-shadow {
+  -webkit-box-shadow: 0 4px 29px rgba(var(--spice-rgb-shadow),.5);
+  box-shadow: 0 4px 29px rgba(var(--spice-rgb-shadow),.5);
+}
+/* Fixes image placeholders icon line color & line width */
+.main-entityHeader-imagePlaceholder {
+  border-radius: 7px;
+  color: var(--spice-text);
+  stroke: currentcolor; 
+  stroke-width: 2px;
+}
+/* Add a gradient to the artists name in playlists & now playing */
+.main-trackList-rowSubTitle a, .main-trackInfo-artists a:link, .main-trackInfo-artists a:visited {
+  background: linear-gradient(5deg, var(--spice-selected-row), 40%, var(--spice-subtext), 80%, var(--spice-selected-row));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.main-trackList-trackListRow.main-trackList-selected .main-trackList-rowSubTitle a, .main-trackList-trackListRow.main-trackList-selected:hover .main-trackList-rowSubTitle a {
+  background: transparent;
+  -webkit-text-fill-color: white;
+}
+.Button-sm-16-buttonTertiary-iconOnly-isUsingKeyboard-useBrowserDefaultFocusStyle,
+.Button-sm-16-buttonTertiary-iconOnly-useBrowserDefaultFocusStyle, .main-shuffleButton-button.main-shuffleButton-active,
+.control-button {
+  color: var(--spice-subtext) !important;
+}
+/*
+-------------------
+HOME POPUP 
+-------------------
+*/
+#wallpaper-select {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+}
+div[aria-label="Retroblur Settings"] .main-trackCreditsModal-mainSection {
+  overflow-y: hidden;
+  padding: 24px;
+}
+.main-trackCreditsModal-container {
+  max-height: 620px;
+}
+.main-trackCreditsModal-originalCredits {
+  padding-bottom: 0;
+}
+.main-userWidget-dropDownMenu li.main-contextMenu-menuItem > div {
+  left: calc(225px + 185px) !important;
+  width: 225px;
+}
+.retroblurOptionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: initial;
+}
+button.retroblurOptionToggle {
+  display: flex;
+  background-color: transparent;
+  border: hidden;
+}
+span.toggleWrapper {
+  width: 42px;
+  height: 24px;
+  background-color: var(--spice-button);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+}
+span.toggleWrapper:disabled {
+  background-color: gray;
+}
+span.toggle {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: black;
+  margin-left: 2px;
+}
+span.toggle.enabled {
+  margin-left: 20px;
+}
+#src-input {
+  margin-bottom: 15px;
+}
+#wallpaper-save {
+  margin-top: 15px;
+  box-sizing: border-box;
+  font-family: var(--font-family, spotify-circular),Helvetica,Arial,sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  background-color: transparent;
+  border: 0;
+  border-radius: 500px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  touch-action: manipulation;
+  transition-duration: 33ms;
+  transition-property: background-color,border-color,color,box-shadow,filter,transform;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  transform: translate3d(0,0,0);
+  padding: 0;
+  min-inline-size: 0px;
+  align-self: center;
+  position: relative;
+  border-radius: 500px;
+  font-size: inherit;
+  padding-block: 12px;
+  padding-inline: 32px;
+  color: black;
+  background-color: var(--spice-button);
+}
+/* report issue link */
+.issue-button {
+  display: initial;
+  vertical-align: -webkit-baseline-middle;
+  font-size: 0.8em;
+  width: fit-content;
+  margin-left: 210px;
+}
+#wallpaper-select > div.main-playlistEditDetailsModal-imageDropDownContainer > button > svg,
+#wallpaper-select > div.main-playlistEditDetailsModal-imageChangeButton > div > button > div {
+  fill: var(--spice-text)
+}
+#wallpaper-select > div.main-playlistEditDetailsModal-imageChangeButton > div > button {
+  border-radius: 10px;
+}
+.playlist-playlist-playlistContent {
+  background: transparent;
+}
+/* Fixes bottom bar not being transparent after color change in marketplace */
+.main-nowPlayingBar-container {
+  background-color: var(--retroblur-player);
+}
+a[class*='-tabBar-active'] {
+  backdrop-filter: blur(2px);
+}
+/* Fixes certain overlays being unreadable */
+.XBJ5gUPLDUdlCFkWV7PZ {
+  text-align: center;
+  align-self: center;
+  color: var(--spice-text)
+}
+.Button-md-24-buttonTertiary-useBrowserDefaultFocusStyle {
+  color: var(--spice-subtext);
+}
+.Button-md-24-buttonTertiary-useBrowserDefaultFocusStyle:hover {
+  color: var(--spice-text) !important;
+}
+.GenericModal > div {
+  backdrop-filter: blur(14px);
+  background: var(--retroblur-player);
+}
+.main-trackCreditsModal-header {
+  backdrop-filter: none !important;
+}
+/* Fixes white glow applying to enlarged cover image */
+.main-coverSlotExpanded-container > div > a:hover {
+  animation: none;
+}
+
+/* NCS Visualizer theming */
+.app-module__container___thHYo_ncsDvisualizer {
+  background-color: rgba(var(--spice-rgb-card),0.4);
+  backdrop-filter: blur(3px);
 }
