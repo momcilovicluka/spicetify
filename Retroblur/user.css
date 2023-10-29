@@ -756,12 +756,12 @@ input:hover:not([disabled]):not(:active)~.x-toggle-indicatorWrapper {
 .playback-bar__progress-time, .playback-bar__progress-time-elapsed, .main-playbackBarRemainingTime-container {
   position: absolute;
   bottom: -48px;
-  right: 270px;
+  right: 495px;
   color: var(--spice-text) !important;
   filter: drop-shadow(0 0 6px var(--spice-text)) !important;
 }
 .playback-bar__progress-time, .playback-bar__progress-time-elapsed, .main-playbackBarRemainingTime-container {
-  bottom: -39px;
+  bottom: -36px;
 }
 .playback-bar__progress-time:first-child {
   margin-right: 30px;
