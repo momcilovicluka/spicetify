@@ -39,7 +39,8 @@
         setBg(startImage);
     }
   
-    var defImage = `https://imgur.com/OmZfNoY.gif`;
+    /*var defImage = `https://imgur.com/OmZfNoY.gif`;*/
+    var defImage = `https://i.imgur.com/OonWS5u.png`;
     console.log("(Retroblur) Button color is '"+getComputedStyle(document.body).getPropertyValue("--spice-button")+"'")
     const marketplaceSchemeCSS = null;//await waitForMarketplaceColors();
     const buttonColor = marketplaceSchemeCSS == null ? getComputedStyle(document.body).getPropertyValue("--spice-button") : getComputedStyle(marketplaceSchemeCSS).getPropertyValue("--spice-button");
@@ -194,7 +195,7 @@
         YouTubeSVG
     ).register()
 
-    let trackContextMenu = new Spicetify.ContextMenu.Item("Edit Wallpaper", () => {}, true, YouTubeSVG)
+    let trackContextMenu = new Spicetify.ContextMenu.Item("Edit Wallpaper", () => {}, () => true, YouTubeSVG)
     trackContextMenu.register()
   
     // startup parse
